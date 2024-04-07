@@ -34,7 +34,7 @@ Route::post('/updateOrder', [OrderController::class, 'updateOrder'])->name('orde
 Route::get('/deleteOrder/{id}', [OrderController::class, 'deleteOrder'])->name('order.delete');
 
 // Admin
-Route::get('/adminMenu', [AdminController::class, 'index'])->name('adminMenu');
+Route::get('/adminMenu', [AdminController::class, 'index'])->middleware('can:isAdmin')->name('adminMenu');
 Route::post('/createItem', [ItemController::class, 'createItem'])->name('item.create');
 Route::post('/updateItem', [ItemController::class, 'updateItem'])->name('item.update');
 Route::get('/deleteItem/{id}', [ItemController::class, 'deleteItem'])->name('item.delete');
